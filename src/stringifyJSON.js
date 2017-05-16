@@ -12,7 +12,6 @@ var stringifyJSON = function(obj) {
       return stringifyJSON(ele);
     });
     return "[" + obj + "]";
-    //[stinrgifyied objects];
   }else if(obj === null ||  typeof obj === "number" || typeof obj === "boolean"){
     return '' + obj;
   }else if(typeof obj === "object"){
@@ -23,7 +22,6 @@ var stringifyJSON = function(obj) {
       }
 
       stringifyProperties.push(stringifyJSON(prop) + ":" + stringifyJSON(obj[prop]));
-      console.log(stringifyProperties);
     }
     return "{" + stringifyProperties + "}";
   }

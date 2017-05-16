@@ -6,15 +6,13 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className) {
   // your code here
-  var body = document;
+  var body = document.body;
   var elementsWithClassName = [];
   var getRecursion = function(element) {
     if (element.classList && element.classList.contains(className)) {
       elementsWithClassName.push(element);
-      console.log(element);
     }
-    var children = element.childNodes;
-    children.forEach(function(childNode){
+    element.childNodes.forEach(function(childNode){
       return getRecursion(childNode);
     });
   }
