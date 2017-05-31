@@ -5,7 +5,13 @@
 var parseJSON = function(json) {
 
   var index = 0;
-  var char = json.charAt(index);
+  var char;
+
+  var nextChar = function() {
+    index++;
+    character = json.charAt(index);
+    return character;
+  };
 
   // parse strings
   var stringParser = function() {
@@ -17,6 +23,23 @@ var parseJSON = function(json) {
   };
   // parse arrays
   var arrayParser = function() {
+    var result = [];
+    if (char === '[') {
+      nextChar();
+      if (char === ']') {
+        nextChar();
+        return result;
+      }
+      while (char !== undefined) {
+        result.push(parseJSON(char));
+        if (char === ']') {
+          nextChar();
+          return result;
+        }
+        nextChar();
+      }
+
+    }
 
   };
   // parse objects
