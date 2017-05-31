@@ -4,25 +4,49 @@
 // but you're not, so you'll write it from scratch:
 var parseJSON = function(json) {
 
-  // parse strings
-  // parse numbers
-  // parse arrays
-  // parse objects
-  // parse booleans
-  // parse null
+  var index = 0;
+  var char = json.charAt(index);
 
-  // apply appropriate parse function to each type of object
-    // if string
-      // return parse strings function
-    // if number
-      // return parse numbers function
-    // if array
-      // return parse arrays function
-    // if object
-      // return parse objects function
-    // if boolean
-      // return parse booleans function
-    // if null
-      // return parse null function
+  // parse strings
+  var stringParser = function() {
+
+  };
+  // parse numbers
+  var numberParser = function() {
+
+  };
+  // parse arrays
+  var arrayParser = function() {
+
+  };
+  // parse objects
+  var objectParser = function() {
+
+  };
+  // parse booleans
+  var booleanParser = function() {
+
+  };
+  // parse null
+  var nullParser = function() {
+
+  };
+
+
+  var parser = function() {
+    if (char === '"') {
+      return stringParser();
+    } else if (char >= '0' && char <= '9') {
+      return numberParser();
+    } else if (char === '[') {
+      return arrayParser();
+    } else if (char === '{') {
+      return objectParser();
+    } else if (char === 't' || char === 'f') {
+      return booleanParser();
+    } else {
+      return nullParser();
+    }
+  }
 
 };
